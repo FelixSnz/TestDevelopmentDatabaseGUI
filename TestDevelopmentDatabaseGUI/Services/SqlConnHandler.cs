@@ -36,6 +36,7 @@ namespace TestDevelopmentDatabaseGUI.Services
 
             this._connected = false;
             Main.Instance.SetButtonsState(false);
+            Main.Instance.UpdateDataSourceLabel();
 
         }
 
@@ -51,12 +52,14 @@ namespace TestDevelopmentDatabaseGUI.Services
                 conn.Open();
                 this._connected=true;
                 Main.Instance.SetButtonsState(true);
+                Main.Instance.UpdateDataSourceLabel();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 this._connected = false;
                 Main.Instance.SetButtonsState(false);
+                Main.Instance.ClearDataSourceLabel();
                 MessageBox.Show(e.ToString(), "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -71,6 +74,7 @@ namespace TestDevelopmentDatabaseGUI.Services
                 Main.Instance.SetButtonsState(false);
                 Main.Instance.CloseCurrentChildForm();
                 Main.Instance.UnHighligthCurrentBtn();
+                Main.Instance.ClearDataSourceLabel();
                 conn = null;
             }
         }

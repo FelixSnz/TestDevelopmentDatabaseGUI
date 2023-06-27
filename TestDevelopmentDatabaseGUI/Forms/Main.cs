@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using TestDevelopmentDatabaseGUI.Forms.Popups;
 using TestDevelopmentDatabaseGUI.Services;
@@ -17,6 +18,7 @@ namespace TestDevelopmentDatabaseGUI.Forms
         private IconButton CurrentBtn;
         private Panel LeftBorderBtn { get;set;}
         private GlobalObjects _globalObjects = GlobalObjects.Instance;
+        private GlobalConfig _globalConfig = GlobalConfig.Instance;  
 
         public static Main Instance { get; private set; }
         public Main()
@@ -118,7 +120,21 @@ namespace TestDevelopmentDatabaseGUI.Forms
         }
 
 
-        private void OpenChildForm(Func<Form> formFactory)
+
+        public void UpdateDataSourceLabel()
+        {
+
+            lblDataSource.Text = $"{_globalConfig.sqlConfig.SelectedDatabase}:{_globalConfig.sqlConfig.TableName}"; 
+            
+        }
+
+        public void ClearDataSourceLabel()
+        {
+            lblDataSource.Text = string.Empty ;
+        }
+
+
+        private void OpenChildForm(Object sender, Func<Form> formFactory)
         {
             if (!_globalObjects.sqlConnHandler.connected)
             {
@@ -131,15 +147,24 @@ namespace TestDevelopmentDatabaseGUI.Forms
                 (CurrentChildForm as Form).Close();
             }
             CurrentChildForm = formFactory();
-            CurrentChildForm.TopLevel = false;
-            CurrentChildForm.FormBorderStyle = FormBorderStyle.None;
-            CurrentChildForm.Dock = DockStyle.Fill;
-            ParentPanel.Controls.Add(CurrentChildForm);
-            ParentPanel.Tag = CurrentChildForm;
-            CurrentChildForm.BringToFront();
-            CurrentChildForm.Show();
 
-            CurrentPanelLbl.Text = CurrentChildForm.Text;
+            Thread.Sleep(500);
+
+            if (!CurrentChildForm.IsDisposed)
+            {
+                CurrentChildForm.TopLevel = false;
+                CurrentChildForm.FormBorderStyle = FormBorderStyle.None;
+                CurrentChildForm.Dock = DockStyle.Fill;
+                ParentPanel.Controls.Add(CurrentChildForm);
+                ParentPanel.Tag = CurrentChildForm;
+                CurrentChildForm.BringToFront();
+                CurrentChildForm.Show();
+
+                CurrentPanelLbl.Text = CurrentChildForm.Text;
+
+                HighligthBtn(sender, Color.LightBlue);
+            }
+            
         }
 
 
@@ -186,38 +211,32 @@ namespace TestDevelopmentDatabaseGUI.Forms
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(() => new SearchPanel());
-            HighligthBtn(sender, Color.LightBlue);
+            OpenChildForm(sender, () => new SearchPanel());
         }
 
         private void NewInstrument_Click(object sender, EventArgs e)
         {
-            OpenChildForm(() => new NewInstrumentPanel());
-            HighligthBtn(sender, Color.LightBlue);
+            OpenChildForm(sender, () => new NewInstrumentPanel());
         }
 
         private void NewModelBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(() => new NewModelPanel());
-            HighligthBtn(sender, Color.LightBlue);
+            OpenChildForm(sender, () => new NewModelPanel());
         }
 
         private void SequencesBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(() => new SequenceEditorPanel());
-            HighligthBtn(sender, Color.LightBlue);
+            OpenChildForm(sender, () => new SequenceEditorPanel());
         }
 
         private void DashboardsBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(() => new DashboardsPanel());
-            HighligthBtn(sender, Color.LightBlue);
+            OpenChildForm(sender, () => new DashboardsPanel());
         }
 
         private void ReportsBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(() => new ReportsPanel());
-            HighligthBtn(sender, Color.LightBlue);
+            OpenChildForm(sender, () => new ReportsPanel());
         }
     }
 }

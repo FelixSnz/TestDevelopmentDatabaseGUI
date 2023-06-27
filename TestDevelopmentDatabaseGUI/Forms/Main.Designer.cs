@@ -45,24 +45,31 @@
             this.NewInstrument = new FontAwesome.Sharp.IconButton();
             this.SearchBtn = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblDataSource = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.SettingsBtn);
-            this.panel1.Controls.Add(this.CurrentPanelLbl);
             this.panel1.Controls.Add(this.DisconnectBtn);
             this.panel1.Controls.Add(this.ConnectBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1060, 59);
+            this.panel1.Size = new System.Drawing.Size(1060, 53);
             this.panel1.TabIndex = 2;
             // 
             // SettingsBtn
@@ -76,16 +83,17 @@
             this.SettingsBtn.IconSize = 52;
             this.SettingsBtn.Location = new System.Drawing.Point(985, 0);
             this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(75, 59);
+            this.SettingsBtn.Size = new System.Drawing.Size(75, 53);
             this.SettingsBtn.TabIndex = 4;
             this.SettingsBtn.UseVisualStyleBackColor = true;
             // 
             // CurrentPanelLbl
             // 
             this.CurrentPanelLbl.AutoSize = true;
+            this.CurrentPanelLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.CurrentPanelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentPanelLbl.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CurrentPanelLbl.Location = new System.Drawing.Point(251, 9);
+            this.CurrentPanelLbl.Location = new System.Drawing.Point(251, 0);
             this.CurrentPanelLbl.Name = "CurrentPanelLbl";
             this.CurrentPanelLbl.Size = new System.Drawing.Size(81, 32);
             this.CurrentPanelLbl.TabIndex = 3;
@@ -102,7 +110,7 @@
             this.DisconnectBtn.IconSize = 52;
             this.DisconnectBtn.Location = new System.Drawing.Point(75, 0);
             this.DisconnectBtn.Name = "DisconnectBtn";
-            this.DisconnectBtn.Size = new System.Drawing.Size(75, 59);
+            this.DisconnectBtn.Size = new System.Drawing.Size(75, 53);
             this.DisconnectBtn.TabIndex = 1;
             this.DisconnectBtn.UseVisualStyleBackColor = true;
             this.DisconnectBtn.Click += new System.EventHandler(this.DisconnectBtn_Click);
@@ -118,7 +126,7 @@
             this.ConnectBtn.IconSize = 42;
             this.ConnectBtn.Location = new System.Drawing.Point(0, 0);
             this.ConnectBtn.Name = "ConnectBtn";
-            this.ConnectBtn.Size = new System.Drawing.Size(75, 59);
+            this.ConnectBtn.Size = new System.Drawing.Size(75, 53);
             this.ConnectBtn.TabIndex = 0;
             this.ConnectBtn.UseVisualStyleBackColor = true;
             this.ConnectBtn.Click += new System.EventHandler(this.ConnectBtn_Click);
@@ -128,9 +136,9 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 59);
+            this.panel2.Location = new System.Drawing.Point(0, 53);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1060, 626);
+            this.panel2.Size = new System.Drawing.Size(1060, 632);
             this.panel2.TabIndex = 3;
             // 
             // panel5
@@ -140,7 +148,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 10);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1060, 616);
+            this.panel5.Size = new System.Drawing.Size(1060, 622);
             this.panel5.TabIndex = 5;
             // 
             // ParentPanel
@@ -148,7 +156,7 @@
             this.ParentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ParentPanel.Location = new System.Drawing.Point(227, 0);
             this.ParentPanel.Name = "ParentPanel";
-            this.ParentPanel.Size = new System.Drawing.Size(833, 616);
+            this.ParentPanel.Size = new System.Drawing.Size(833, 622);
             this.ParentPanel.TabIndex = 2;
             // 
             // MenuPanel
@@ -165,7 +173,7 @@
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.MenuPanel.Size = new System.Drawing.Size(227, 616);
+            this.MenuPanel.Size = new System.Drawing.Size(227, 622);
             this.MenuPanel.TabIndex = 1;
             // 
             // ReportsBtn
@@ -249,7 +257,7 @@
             this.pictureBox1.BackgroundImage = global::TestDevelopmentDatabaseGUI.Properties.Resources.Johnson_Controls_Logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 480);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 486);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 136);
             this.pictureBox1.TabIndex = 3;
@@ -302,6 +310,45 @@
             this.panel4.Size = new System.Drawing.Size(1060, 10);
             this.panel4.TabIndex = 4;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.CurrentPanelLbl);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(150, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(332, 53);
+            this.panel3.TabIndex = 6;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.lblDataSource);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(482, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(503, 53);
+            this.panel6.TabIndex = 7;
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(138, 53);
+            this.panel7.TabIndex = 6;
+            // 
+            // lblDataSource
+            // 
+            this.lblDataSource.AutoSize = true;
+            this.lblDataSource.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDataSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataSource.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblDataSource.Location = new System.Drawing.Point(138, 0);
+            this.lblDataSource.Name = "lblDataSource";
+            this.lblDataSource.Size = new System.Drawing.Size(112, 32);
+            this.lblDataSource.TabIndex = 7;
+            this.lblDataSource.Text = "Source:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,11 +359,14 @@
             this.Name = "Main";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -339,6 +389,10 @@
         private FontAwesome.Sharp.IconButton NewModelBtn;
         private FontAwesome.Sharp.IconButton NewInstrument;
         private FontAwesome.Sharp.IconButton SettingsBtn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblDataSource;
+        private System.Windows.Forms.Panel panel7;
     }
 }
 
