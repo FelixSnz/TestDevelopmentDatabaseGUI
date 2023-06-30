@@ -55,7 +55,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.btnPdfExport = new FontAwesome.Sharp.IconButton();
             this.btnCsvExport = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -352,7 +351,6 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.btnPdfExport);
             this.panel13.Controls.Add(this.btnCsvExport);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(3, 18);
@@ -361,28 +359,15 @@
             this.panel13.Size = new System.Drawing.Size(101, 177);
             this.panel13.TabIndex = 0;
             // 
-            // btnPdfExport
-            // 
-            this.btnPdfExport.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPdfExport.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.btnPdfExport.IconColor = System.Drawing.Color.Black;
-            this.btnPdfExport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPdfExport.Location = new System.Drawing.Point(12, 100);
-            this.btnPdfExport.Name = "btnPdfExport";
-            this.btnPdfExport.Size = new System.Drawing.Size(77, 65);
-            this.btnPdfExport.TabIndex = 1;
-            this.btnPdfExport.UseVisualStyleBackColor = true;
-            this.btnPdfExport.Click += new System.EventHandler(this.btnPdfExport_Click);
-            // 
             // btnCsvExport
             // 
-            this.btnCsvExport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCsvExport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCsvExport.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
             this.btnCsvExport.IconColor = System.Drawing.Color.Black;
             this.btnCsvExport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCsvExport.Location = new System.Drawing.Point(12, 12);
             this.btnCsvExport.Name = "btnCsvExport";
-            this.btnCsvExport.Size = new System.Drawing.Size(77, 65);
+            this.btnCsvExport.Size = new System.Drawing.Size(77, 153);
             this.btnCsvExport.TabIndex = 0;
             this.btnCsvExport.UseVisualStyleBackColor = true;
             this.btnCsvExport.Click += new System.EventHandler(this.btnCsvExport_Click);
@@ -447,7 +432,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlDynamicCmpContainer;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private FontAwesome.Sharp.IconButton btnPdfExport;
         private FontAwesome.Sharp.IconButton btnCsvExport;
         private System.Windows.Forms.Panel panel3;
     }

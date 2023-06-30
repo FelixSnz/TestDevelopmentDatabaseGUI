@@ -63,7 +63,10 @@ namespace TestDevelopmentDatabaseGUI.Services
                             DateTime date1 = DateTime.Parse(dateRangeVals[0]);
                             DateTime date2 = DateTime.Parse(dateRangeVals[1]);
                             DateTime[] dateRange = { date1, date2 };
-                            query.Append($"{tag.ColumnName} > #{date1.ToString("MM/dd/yyyy")}# AND {tag.ColumnName} < #{date2.ToString("MM/dd/yyyy")}#");
+                            query.Append($"{tag.ColumnName} > '{date1.ToString("yyyy/MM/dd")}' AND {tag.ColumnName} < '{date2.ToString("yyyy/MM/dd")}'");
+                            break;
+                        case Type t when t == typeof(SingleDatetime):
+                            query.Append($"[{tag.ColumnName}] = '{tag.SearchVal}'");
                             break;
                         default:
                             // You can add more cases for other data types

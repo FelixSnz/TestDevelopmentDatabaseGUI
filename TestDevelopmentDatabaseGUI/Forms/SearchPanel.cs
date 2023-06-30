@@ -46,14 +46,6 @@ namespace TestDevelopmentDatabaseGUI.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                if (_globalObjects.sqlConnHandler.connState == ConnectionState.Open)
-                {
-                    Console.WriteLine("closes");
-                    _globalObjects.sqlConnHandler.Disconnect();
-                }
-            }
 
         }
 
@@ -229,15 +221,9 @@ namespace TestDevelopmentDatabaseGUI.Forms
                         {
 
                             // Check if the value is a DateTime
-                            if (dgvRow.Cells[i].Value != null && DateTime.TryParse(dgvRow.Cells[i].Value.ToString(), out DateTime dateValue))
-                            {
-                                // If it's a DateTime, write it in short date format
-                                sw.Write(dateValue.ToShortDateString());
-                            }
-                            else
-                            {
-                                sw.Write(dgvRow.Cells[i].Value);
-                            }
+
+                            sw.Write(dgvRow.Cells[i].Value);
+
 
                             if (i < dataGridView1.Columns.Count - 1)
                             {

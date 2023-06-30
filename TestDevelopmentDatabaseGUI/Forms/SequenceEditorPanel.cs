@@ -188,7 +188,7 @@ namespace TestDevelopmentDatabaseGUI.Forms
                                 }
                                 else
                                 {
-                                    MessageBox.Show($"algo mal: value {cell.Value}: we think {cell.ColumnIndex} is float");
+                                    MessageBox.Show($"bad parse: value {cell.Value}: we think {cell.ColumnIndex} is float");
 
                                 }
                                 break;
@@ -200,7 +200,7 @@ namespace TestDevelopmentDatabaseGUI.Forms
                                 }
                                 else
                                 {
-                                    MessageBox.Show($" algo ma: value {cell.Value}: we think {cell.ColumnIndex} is float");
+                                    MessageBox.Show($"bad parse: value {cell.Value}: we think {cell.ColumnIndex} is float");
 
                                 }
                                 break;
@@ -211,7 +211,7 @@ namespace TestDevelopmentDatabaseGUI.Forms
                                 }
                                 else
                                 {
-                                    MessageBox.Show($" algo mal:value {cell.Value}: we think {cell.ColumnIndex} is float");
+                                    MessageBox.Show($"bad parse: value {cell.Value}: we think {cell.ColumnIndex} is float");
 
                                 }
                                 break;

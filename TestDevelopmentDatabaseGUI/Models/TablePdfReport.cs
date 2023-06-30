@@ -15,12 +15,14 @@ namespace TestDevelopmentDatabaseGUI.Models
         string landscapeTemplatePath = Path.Combine(Application.StartupPath, "Resources\\pdf_templates\\landscape_report_template.pdf");
         string templatePath;
         string ReportFilePath;
+        bool isLandscape;
 
         Dictionary<string, float> columnWidths = new Dictionary<string, float>();
 
-        public TablePdfReport(string reportFilePath, bool landscape=false)
+        public TablePdfReport(string reportFilePath, bool landscape = false)
         {
             ReportFilePath = reportFilePath;
+            isLandscape = landscape;
 
             if (landscape)
             {
@@ -37,7 +39,7 @@ namespace TestDevelopmentDatabaseGUI.Models
             var baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             var dateFont = new Font(baseFont, 10);
             string date = DateTime.Now.ToString("MM/dd/yyyy");
-            ColumnText.ShowTextAligned(canvas, Element.ALIGN_LEFT, new Phrase(date, dateFont), 120, 64, 0);
+            ColumnText.ShowTextAligned(canvas, Element.ALIGN_LEFT, new Phrase(date, dateFont), 120, 59, 0);
         }
 
         public void Create(DataTable Data)
@@ -47,9 +49,10 @@ namespace TestDevelopmentDatabaseGUI.Models
             PdfReader reader = new PdfReader(templatePath);
             PdfStamper stamper = new PdfStamper(reader, new FileStream(ReportFilePath, FileMode.Create));
             PdfContentByte canvas = stamper.GetOverContent(1);
-            PdfImportedPage page = stamper.GetImportedPage(reader, 1);
+            Rectangle pageSize = reader.GetPageSizeWithRotation(1);
             AddDateToPage(ref canvas);
             PdfPTable table = new PdfPTable(Data.Columns.Count);
+            PdfImportedPage templatePage = stamper.GetImportedPage(reader, 1);
 
             var baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             var customFont = new Font(baseFont, 8);
@@ -59,8 +62,8 @@ namespace TestDevelopmentDatabaseGUI.Models
                 table.AddCell(new Phrase(column.ColumnName, customFont));
             }
 
-            float maxTableHeight = 4500;
             float currentTableHeight = 0;
+            float tableWidth = columnWidths.Values.Sum();
 
             foreach (DataRow row in Data.Rows)
             {
@@ -68,35 +71,31 @@ namespace TestDevelopmentDatabaseGUI.Models
                 {
                     if (row[column] != null)
                     {
-                        string cellValue;
-                        if (DateTime.TryParse(row[column].ToString(), out DateTime dateValue))
-                        {
-                            cellValue = dateValue.ToShortDateString();
-                        }
-                        else
-                        {
-                            cellValue = row[column].ToString();
-                        }
-                        PdfPCell cell = new PdfPCell(new Phrase(cellValue, customFont));
+
+                        PdfPCell cell = new PdfPCell(new Phrase(row[column].ToString(), customFont));
                         table.AddCell(cell);
                         string columnName = column.ColumnName;
-                        float estimatedHeight = EstimateCellHeight(columnName, cellValue);
+                        float estimatedHeight = EstimateCellHeight(columnName, row[column].ToString());
                         currentTableHeight += estimatedHeight;
                     }
                 }
 
-                if (currentTableHeight > maxTableHeight && Data.Rows.IndexOf(row) < Data.Rows.Count - 2)
+                table.CalculateHeights();
+                float totalHeight = table.TotalHeight;
+
+                if (totalHeight + currentTableHeight > pageSize.Height + 100) // I left a 200 margin space, adjust it according to your needs.
                 {
-                    table.CalculateHeights();
                     table.SetTotalWidth(columnWidths.Values.ToArray());
                     table.LockedWidth = true;
 
-                    table.WriteSelectedRows(0, -1, 50, 500, canvas);
-                    stamper.InsertPage(reader.NumberOfPages + 1, reader.GetPageSizeWithRotation(1));
-                    canvas = stamper.GetOverContent(reader.NumberOfPages);
-                    AddDateToPage(ref canvas);
-                    canvas.AddTemplate(page, 0, 0);
+                    float tableStartPos = isLandscape ? 50 : (pageSize.Width - tableWidth) / 2; // Here's the centering when in portrait mode.
+                    table.WriteSelectedRows(0, -1, tableStartPos, pageSize.Height - 100, canvas);
 
+                    stamper.InsertPage(reader.NumberOfPages + 1, pageSize);
+                    canvas = stamper.GetOverContent(reader.NumberOfPages);
+                    canvas.AddTemplate(templatePage, 0, 0); // This line will add the template to the new page.
+
+                    AddDateToPage(ref canvas);
                     table = new PdfPTable(Data.Columns.Count);
                     currentTableHeight = 0;
                 }
@@ -104,7 +103,8 @@ namespace TestDevelopmentDatabaseGUI.Models
 
             table.SetTotalWidth(columnWidths.Values.ToArray());
             table.LockedWidth = true;
-            table.WriteSelectedRows(0, -1, 25, 500, canvas);
+            float finalTableStartPos = isLandscape ? 50 : (pageSize.Width - tableWidth) / 2; // Again centering when in portrait mode.
+            table.WriteSelectedRows(0, -1, finalTableStartPos, pageSize.Height - 100, canvas); // Start from the top of the page, minus a margin of 100
 
             stamper.Close();
             reader.Close();

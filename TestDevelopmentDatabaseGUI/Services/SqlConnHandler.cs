@@ -161,7 +161,6 @@ namespace TestDevelopmentDatabaseGUI.Services
 
             string query = QueryBuilder.BuildSearchQuery(searchTags, operation);
 
-            MessageBox.Show($"query: {query}");
             Console.WriteLine($"query: {query}");
             SqlCommand cmd = new SqlCommand(query, conn);
             DataTable dt = new DataTable();

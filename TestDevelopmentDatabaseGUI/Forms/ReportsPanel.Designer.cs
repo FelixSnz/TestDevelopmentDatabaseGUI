@@ -35,16 +35,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbxSearchId = new System.Windows.Forms.TextBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPdfExport = new FontAwesome.Sharp.IconButton();
-            this.btnCsvExport = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -52,8 +47,6 @@
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,7 +76,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel12);
-            this.groupBox1.Controls.Add(this.panel11);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -96,8 +88,8 @@
             // 
             this.panel12.Controls.Add(this.label2);
             this.panel12.Controls.Add(this.panel2);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(3, 84);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(3, 18);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(730, 93);
             this.panel12.TabIndex = 1;
@@ -129,48 +121,6 @@
             this.tbxSearchId.Name = "tbxSearchId";
             this.tbxSearchId.Size = new System.Drawing.Size(730, 28);
             this.tbxSearchId.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.comboBox1);
-            this.panel11.Controls.Add(this.panel8);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(3, 18);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(730, 66);
-            this.panel11.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Reporte de calibracion",
-            "Reporte de prueba de Optiview"});
-            this.comboBox1.Location = new System.Drawing.Point(0, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(730, 30);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label1);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(730, 30);
-            this.panel8.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tipo de Reporte:";
             // 
             // panel10
             // 
@@ -207,7 +157,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnPdfExport);
-            this.groupBox3.Controls.Add(this.btnCsvExport);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
@@ -219,27 +168,16 @@
             // 
             // btnPdfExport
             // 
-            this.btnPdfExport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPdfExport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPdfExport.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
             this.btnPdfExport.IconColor = System.Drawing.Color.Black;
             this.btnPdfExport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPdfExport.Location = new System.Drawing.Point(87, 25);
+            this.btnPdfExport.Location = new System.Drawing.Point(10, 25);
             this.btnPdfExport.Name = "btnPdfExport";
-            this.btnPdfExport.Size = new System.Drawing.Size(74, 85);
+            this.btnPdfExport.Size = new System.Drawing.Size(151, 85);
             this.btnPdfExport.TabIndex = 3;
             this.btnPdfExport.UseVisualStyleBackColor = true;
-            // 
-            // btnCsvExport
-            // 
-            this.btnCsvExport.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCsvExport.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
-            this.btnCsvExport.IconColor = System.Drawing.Color.Black;
-            this.btnCsvExport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCsvExport.Location = new System.Drawing.Point(10, 25);
-            this.btnCsvExport.Name = "btnCsvExport";
-            this.btnCsvExport.Size = new System.Drawing.Size(74, 85);
-            this.btnCsvExport.TabIndex = 2;
-            this.btnCsvExport.UseVisualStyleBackColor = true;
+            this.btnPdfExport.Click += new System.EventHandler(this.btnPdfExport_Click);
             // 
             // panel3
             // 
@@ -256,6 +194,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(907, 364);
@@ -278,9 +217,6 @@
             this.panel12.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -296,17 +232,12 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.GroupBox groupBox3;
         private FontAwesome.Sharp.IconButton btnPdfExport;
-        private FontAwesome.Sharp.IconButton btnCsvExport;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox tbxSearchId;
