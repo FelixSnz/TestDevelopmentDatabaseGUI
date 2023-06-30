@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SettingsBtn = new FontAwesome.Sharp.IconButton();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblDataSource = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.CurrentPanelLbl = new System.Windows.Forms.Label();
+            this.SettingsBtn = new FontAwesome.Sharp.IconButton();
             this.DisconnectBtn = new FontAwesome.Sharp.IconButton();
             this.ConnectBtn = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,17 +49,13 @@
             this.NewInstrument = new FontAwesome.Sharp.IconButton();
             this.SearchBtn = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lblDataSource = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +72,57 @@
             this.panel1.Size = new System.Drawing.Size(1060, 53);
             this.panel1.TabIndex = 2;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.lblDataSource);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(482, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(503, 53);
+            this.panel6.TabIndex = 7;
+            // 
+            // lblDataSource
+            // 
+            this.lblDataSource.AutoSize = true;
+            this.lblDataSource.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDataSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataSource.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblDataSource.Location = new System.Drawing.Point(138, 0);
+            this.lblDataSource.Name = "lblDataSource";
+            this.lblDataSource.Size = new System.Drawing.Size(112, 32);
+            this.lblDataSource.TabIndex = 7;
+            this.lblDataSource.Text = "Source:";
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(138, 53);
+            this.panel7.TabIndex = 6;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.CurrentPanelLbl);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(150, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(332, 53);
+            this.panel3.TabIndex = 6;
+            // 
+            // CurrentPanelLbl
+            // 
+            this.CurrentPanelLbl.AutoSize = true;
+            this.CurrentPanelLbl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CurrentPanelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentPanelLbl.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CurrentPanelLbl.Location = new System.Drawing.Point(251, 0);
+            this.CurrentPanelLbl.Name = "CurrentPanelLbl";
+            this.CurrentPanelLbl.Size = new System.Drawing.Size(81, 32);
+            this.CurrentPanelLbl.TabIndex = 3;
+            this.CurrentPanelLbl.Text = "Inicio";
+            // 
             // SettingsBtn
             // 
             this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Right;
@@ -86,18 +137,6 @@
             this.SettingsBtn.Size = new System.Drawing.Size(75, 53);
             this.SettingsBtn.TabIndex = 4;
             this.SettingsBtn.UseVisualStyleBackColor = true;
-            // 
-            // CurrentPanelLbl
-            // 
-            this.CurrentPanelLbl.AutoSize = true;
-            this.CurrentPanelLbl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CurrentPanelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentPanelLbl.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CurrentPanelLbl.Location = new System.Drawing.Point(251, 0);
-            this.CurrentPanelLbl.Name = "CurrentPanelLbl";
-            this.CurrentPanelLbl.Size = new System.Drawing.Size(81, 32);
-            this.CurrentPanelLbl.TabIndex = 3;
-            this.CurrentPanelLbl.Text = "Inicio";
             // 
             // DisconnectBtn
             // 
@@ -310,45 +349,6 @@
             this.panel4.Size = new System.Drawing.Size(1060, 10);
             this.panel4.TabIndex = 4;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.CurrentPanelLbl);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(150, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(332, 53);
-            this.panel3.TabIndex = 6;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.lblDataSource);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(482, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(503, 53);
-            this.panel6.TabIndex = 7;
-            // 
-            // panel7
-            // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(138, 53);
-            this.panel7.TabIndex = 6;
-            // 
-            // lblDataSource
-            // 
-            this.lblDataSource.AutoSize = true;
-            this.lblDataSource.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDataSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataSource.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDataSource.Location = new System.Drawing.Point(138, 0);
-            this.lblDataSource.Name = "lblDataSource";
-            this.lblDataSource.Size = new System.Drawing.Size(112, 32);
-            this.lblDataSource.TabIndex = 7;
-            this.lblDataSource.Text = "Source:";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -359,14 +359,14 @@
             this.Name = "Main";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }

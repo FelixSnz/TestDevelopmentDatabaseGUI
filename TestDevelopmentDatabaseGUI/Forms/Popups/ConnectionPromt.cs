@@ -40,6 +40,7 @@ namespace TestDevelopmentDatabaseGUI.Forms.Popups
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            Application.Exit();
         }
 
         private void ConnectBtn_Click_1(object sender, EventArgs e)

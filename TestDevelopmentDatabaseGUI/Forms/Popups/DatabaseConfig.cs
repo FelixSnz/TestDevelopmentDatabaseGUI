@@ -41,6 +41,7 @@ namespace TestDevelopmentDatabaseGUI.Forms.Popups
         {
             _globalConfig.sqlConfig.TableName = cmbTables.SelectedItem.ToString();
             _globalConfig.Save();
+            Main.Instance.UpdateDataSourceLabel();
 
             DialogResult = DialogResult.OK;
 
